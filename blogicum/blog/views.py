@@ -42,14 +42,14 @@ def category_posts(request, category_slug):
         slug=category_slug,
         is_published=True
     )
-    
+
     post_list = category.posts.select_related(
         'author', 'location'
     ).filter(
         is_published=True,
         pub_date__lte=timezone.now()
     )
-    
+
     context = {
         'category': category,
         'post_list': post_list

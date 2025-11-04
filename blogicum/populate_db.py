@@ -1,13 +1,13 @@
+from blog.models import Category, Location, Post
+from datetime import timedelta
+from django.utils import timezone
+from django.contrib.auth import get_user_model
 import os
 import django
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blogicum.settings')
 django.setup()
 
-from django.contrib.auth import get_user_model
-from django.utils import timezone
-from datetime import timedelta
-from blog.models import Category, Location, Post
 
 User = get_user_model()
 
@@ -83,9 +83,9 @@ now = timezone.now()
 Post.objects.get_or_create(
     title='Крушение',
     defaults={
-        'text': '''Наш корабль, застигнутый в открытом море страшным штормом, 
-        потерпел крушение. Весь экипаж, кроме меня, утонул; я же, несчастный 
-        Робинзон Крузо, был выброшен полумёртвым на берег этого проклятого острова, 
+        'text': '''Наш корабль, застигнутый в открытом море страшным штормом,
+        потерпел крушение. Весь экипаж, кроме меня, утонул; я же, несчастный
+        Робинзон Крузо, был выброшен полумёртвым на берег этого проклятого острова,
         который назвал островом Отчаяния.''',
         'pub_date': now - timedelta(days=30),
         'author': admin_user,
@@ -98,9 +98,9 @@ Post.objects.get_or_create(
 Post.objects.get_or_create(
     title='Утро после крушения',
     defaults={
-        'text': '''Проснувшись поутру, я увидел, что наш корабль сняло с мели 
-        приливом и пригнало гораздо ближе к берегу. Это подало мне надежду, что, 
-        когда ветер стихнет, мне удастся добраться до корабля и запастись едой и 
+        'text': '''Проснувшись поутру, я увидел, что наш корабль сняло с мели
+        приливом и пригнало гораздо ближе к берегу. Это подало мне надежду, что,
+        когда ветер стихнет, мне удастся добраться до корабля и запастись едой и
         другими необходимыми вещами.''',
         'pub_date': now - timedelta(days=29),
         'author': admin_user,
@@ -113,8 +113,8 @@ Post.objects.get_or_create(
 Post.objects.get_or_create(
     title='Шторм продолжается',
     defaults={
-        'text': '''Всю ночь и весь день шёл дождь и дул сильный порывистый ветер. 
-        Корабль за ночь разбило в щепки; на том месте, где он стоял, торчат какие-то 
+        'text': '''Всю ночь и весь день шёл дождь и дул сильный порывистый ветер.
+        Корабль за ночь разбило в щепки; на том месте, где он стоял, торчат какие-то
         жалкие обломки, да и те видны только во время отлива.''',
         'pub_date': now - timedelta(days=25),
         'author': admin_user,
@@ -127,8 +127,8 @@ Post.objects.get_or_create(
 Post.objects.get_or_create(
     title='Изучаем Django',
     defaults={
-        'text': '''Сегодня начал изучать Django - отличный фреймворк для веб-разработки! 
-        Создал свой первый проект Блогикум. Разобрался с моделями, представлениями и 
+        'text': '''Сегодня начал изучать Django - отличный фреймворк для веб-разработки!
+        Создал свой первый проект Блогикум. Разобрался с моделями, представлениями и
         шаблонами. Очень удобная админ-панель из коробки!''',
         'pub_date': now - timedelta(days=5),
         'author': admin_user,
@@ -141,8 +141,8 @@ Post.objects.get_or_create(
 Post.objects.get_or_create(
     title='Рецепт борща',
     defaults={
-        'text': '''Сегодня приготовил настоящий украинский борщ по бабушкиному рецепту. 
-        Секрет вкуса - в правильно приготовленной свекле и хорошем мясном бульоне. 
+        'text': '''Сегодня приготовил настоящий украинский борщ по бабушкиному рецепту.
+        Секрет вкуса - в правильно приготовленной свекле и хорошем мясном бульоне.
         Добавил сметану и зелень - получилось объедение!''',
         'pub_date': now - timedelta(days=2),
         'author': admin_user,
@@ -156,7 +156,7 @@ Post.objects.get_or_create(
 Post.objects.get_or_create(
     title='Планы на будущее',
     defaults={
-        'text': '''Это пост запланирован на будущее и пока не должен отображаться 
+        'text': '''Это пост запланирован на будущее и пока не должен отображаться
         на сайте.''',
         'pub_date': now + timedelta(days=7),
         'author': admin_user,

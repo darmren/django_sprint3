@@ -6,7 +6,7 @@ User = get_user_model()
 
 class PublishedModel(models.Model):
     """Абстрактная модель. Добавляет флаг is_published и created_at."""
-    
+
     is_published = models.BooleanField(
         default=True,
         verbose_name='Опубликовано',
@@ -23,7 +23,7 @@ class PublishedModel(models.Model):
 
 class Category(PublishedModel):
     """Тематическая категория."""
-    
+
     title = models.CharField(
         max_length=256,
         verbose_name='Заголовок'
@@ -47,7 +47,7 @@ class Category(PublishedModel):
 
 class Location(PublishedModel):
     """Географическая метка."""
-    
+
     name = models.CharField(
         max_length=256,
         verbose_name='Название места'
@@ -63,7 +63,7 @@ class Location(PublishedModel):
 
 class Post(PublishedModel):
     """Публикация."""
-    
+
     title = models.CharField(
         max_length=256,
         verbose_name='Заголовок'
@@ -73,8 +73,7 @@ class Post(PublishedModel):
     )
     pub_date = models.DateTimeField(
         verbose_name='Дата и время публикации',
-        help_text='Если установить дату и время в будущем — можно делать отложенные публикации.'
-    )
+        help_text='Если установить дату и время в будущем — можно делать отложенные публикации.')
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
