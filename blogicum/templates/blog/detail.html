@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+  <article>
+    <h1>{{ post.title }}</h1>
+    <p>
+      <span class="text-muted">
+        Автор: {{ post.author.get_full_name|default:post.author.username }}
+        | Дата: {{ post.pub_date|date:"d E Y" }}
+      </span>
+    </p>
+    {% if post.location %}
+      <p>
+        <span class="text-muted">
+          Место: {{ post.location.name }}
+        </span>
+      </p>
+    {% else %}
+      <p>
+        <span class="text-muted">
+          Место: Планета Земля
+        </span>
+      </p>
+    {% endif %}
+    <p>
+      <a href="{% url 'blog:category_posts' post.category.slug %}">{{ post.category.title }}</a>
+    </p>
+    <div class="mt-4">
+      {{ post.text|linebreaks }}
+    </div>
+  </article>
+{% endblock %}
